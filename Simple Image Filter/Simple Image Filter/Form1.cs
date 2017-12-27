@@ -15,10 +15,13 @@ namespace Simple_Image_Filter
         Bitmap newImage;
 
         FileOperation getFile = new FileOperation();
+        ImageManipulation editImage = new ImageManipulation();
 
         public frmSimpleFilter()
         {
             InitializeComponent();
+
+            editImage.ImageFinished += OnImageFinished;
         }
 
         private void btnOpenImage_Click(object sender, EventArgs e)
@@ -28,16 +31,28 @@ namespace Simple_Image_Filter
         }
 
 
+        public void OnImageFinished(object sender, ImageEventArgs e)
+        {
+            pictureBox2.Image = e.Bmap;
+        }
 
 
 
 
 
+        string GetCheckedRadio(Control container)
+        {
+            foreach (var control in container.Controls)
+            {
+                RadioButton radio = control as RadioButton;
 
-
-
-
-
+                if (radio != null && radio.Checked)
+                {
+                    return radio.Text;
+                }
+            }
+            return null;
+        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -47,6 +62,14 @@ namespace Simple_Image_Filter
         private void btnSave_Click(object sender, EventArgs e)
         {
             getFile.SaveImage(pictureBox2);
+        }
+
+        private void btnApplyFilter_Click_1(object sender, EventArgs e)
+        {
+            string filter = GetCheckedRadio(groupBoxFilters);
+
+            Bitmap currentImage = new Bitmap(newImage);
+            editImage.Manipulate(currentImage, filter);
         }
     }
 }

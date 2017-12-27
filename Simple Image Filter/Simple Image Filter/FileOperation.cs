@@ -14,9 +14,8 @@ namespace Simple_Image_Filter
 
         public Bitmap OpenImage()
         {
-            OpenFileDialog openFD = new OpenFileDialog();            
-            openFD.InitialDirectory = @"C:\Users\PC\source\repos\Simple-Image-Filter\Simple Image Filter\Simple Image Filter\additionalFiles\Images\Photo1.jpg";
-            openFD.InitialDirectory = Environment.CurrentDirectory;   
+            OpenFileDialog openFD = new OpenFileDialog();                        
+            openFD.InitialDirectory = @"..\..\additionalFiles\Images";
             openFD.Filter = "images| *.jpg; *.png; *.bmp";
             if (openFD.ShowDialog() == DialogResult.OK)
             {
@@ -31,7 +30,7 @@ namespace Simple_Image_Filter
             SaveFileDialog saveFD = new SaveFileDialog();
             saveFD.Filter = "images| *.jpg; *.png; *.bmp";
             saveFD.FileName = "NewPhoto.bmp";
-            saveFD.InitialDirectory = @"C:\Users\PC\source\repos\Simple-Image-Filter\Simple Image Filter\Simple Image Filter\additionalFiles\Images\";
+            saveFD.InitialDirectory = @"..\..\additionalFiles\Images";
             saveFD.RestoreDirectory = true;
             if (saveFD.ShowDialog() == DialogResult.OK) 
             {
