@@ -32,6 +32,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnApplyFilter = new System.Windows.Forms.Button();
             this.btnOpenImage = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,6 +44,7 @@
             this.btnExit.TabIndex = 19;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // pictureBox2
             // 
@@ -71,12 +73,24 @@
             this.btnOpenImage.TabIndex = 17;
             this.btnOpenImage.Text = "Open Image";
             this.btnOpenImage.UseVisualStyleBackColor = true;
+            this.btnOpenImage.Click += new System.EventHandler(this.btnOpenImage_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(12, 311);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(96, 24);
+            this.btnSave.TabIndex = 20;
+            this.btnSave.Text = "Save Image";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // frmSimpleFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 341);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnApplyFilter);
@@ -93,6 +107,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnApplyFilter;
         private System.Windows.Forms.Button btnOpenImage;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 
